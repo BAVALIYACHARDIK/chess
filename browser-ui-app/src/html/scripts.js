@@ -1,10 +1,11 @@
+import { createChessboard } from './chessboard.js';
 class Chess {
 
     constructor() {
         this.baseURL = 'http://localhost:8080';
     }
 
-    // GET current FEN from server
+    
     async getCurrentFEN() {
         try {
             const response = await fetch(`${this.baseURL}/api/position`);
@@ -76,8 +77,7 @@ const chess = new Chess();
 
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('Page loaded, fetching current position...');
-    
-
+    createChessboard();
     const currentFEN = await chess.getCurrentFEN();
     
     setfen("hello  world");
